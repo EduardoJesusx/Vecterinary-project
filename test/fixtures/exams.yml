@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  observation: MyText
+  scheduled: 2023-03-30 20:42:49
+  pet_owner: one
+  veterinary: one
+
+two:
+  title: MyString
+  description: MyText
+  observation: MyText
+  scheduled: 2023-03-30 20:42:49
+  pet_owner: two
+  veterinary: two
