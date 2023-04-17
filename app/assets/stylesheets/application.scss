@@ -3,6 +3,23 @@
 	margin: 0;
 	padding: 0;
 }
+body{
+	width: 100vw;
+	height: 100vh;
+	overflow: auto;
+	display: grid;
+	grid-template-areas: 
+	"sidebar content content"
+	;
+	grid-template-columns: 200px 1fr;
+}
+
+main{
+	height: 100%;
+	grid-area: "content";
+	max-height: 100vh;
+	overflow: auto;
+}
 
 .header{
   	height: 100px;
@@ -27,4 +44,12 @@
 
 img{
 	width: 100px;
+}
+
+#veterinaries{
+	margin-left: 15rem;
+}
+
+.content{
+
 }

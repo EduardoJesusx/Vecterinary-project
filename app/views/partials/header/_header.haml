@@ -1,16 +1,29 @@
+%a.toogle-button{href: '#', onclick: 'hideHeader(); return false;'} Mudar
 %header.header
+	%a.link-header-logo{ :href => "/", :title => "Logo" }
+		%div.logo_header
+			%img{:src => asset_path("logo.png")}
 
-	%img{:src => asset_path("logo.png")}/
-
-	%li.header-links
-		%a{ :href => "/exams", :title => "Meet the Team" }
+	%li.links__list_header
+		%a.links__list_header{ :href => "/exams", :title => "Meet the Team" }
 			%span Exams
 
-		%a{ :href => "/pet_owners", :title => "Meet the Team" }
+		%a.links__list_header{ :href => "/pet_owners", :title => "Meet the Team" }
 			%span Pet Owners
 
-		%a{ :href => "/animals", :title => "Meet the Team" }
+		%a.links__list_header{ :href => "/animals", :title => "Meet the Team" }
 			%span Animals
 
-		%a{ :href => "/veterinaries", :title => "Meet the Team" }
+		%a.links__list_header{ :href => "/veterinaries", :title => "Meet the Team" }
 			%span Veterinaries
+
+	%div.user_header
+		%img.avatar{:src => "https://robohash.org/asd"}
+		%p
+			User Name
+
+:javascript
+	function hideHeader(){
+		const header = document.querySelector(".header")
+		header.style.display == "none" ? header.style.display = "flex" : header.style.display = "none"
+	}
