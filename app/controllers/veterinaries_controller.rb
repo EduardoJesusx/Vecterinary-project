@@ -65,6 +65,6 @@ class VeterinariesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def veterinary_params
-      params.require(:veterinary).permit(:first_name, :last_name)
+      params.require(:veterinary).permit(:first_name, :last_name, :admin)
     end
 end

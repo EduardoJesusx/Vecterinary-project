@@ -3,6 +3,7 @@ class CreateVeterinaries < ActiveRecord::Migration[7.0]
     create_table :veterinaries do |t|
       t.string :first_name
       t.string :last_name
+      t.boolean :admin
 
       t.timestamps
     end
