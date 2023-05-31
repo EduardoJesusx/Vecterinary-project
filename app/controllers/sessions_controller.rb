@@ -1,4 +1,22 @@
 class SessionsController < ApplicationController
+    skip_before_action :authenticate_user
+    before_action :validate_user, only: [:new]
+
+    def new
+        render "login"
+    end
+
+    def create
+        byebug
+        @veterinary = Veterinary.where(email: params[:email]).first
+        if @veterinary&.password_digest == Digest::SHA256.hexdigest(params[:password])
+          session[:user_id] = @veterinary.id
+          redirect_to :controller => 'exams', :action => 'index'
+        else
+            redirect_to root_url, notice: "User not found"
+        end
+      end     
+
     def index
         session[:type] = 'admin'
         session[:name] = 'Carlos Goias'
@@ -8,5 +26,12 @@ class SessionsController < ApplicationController
     def destroy
         session.clear
         redirect_to root_url
+    end
+
+    private
+
+    def validate_user
+        byebug
+        redirect_to :controller => 'exams', :action => 'index' if current_user.present?
     end
 end

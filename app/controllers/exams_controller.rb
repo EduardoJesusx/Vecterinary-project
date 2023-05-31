@@ -1,5 +1,5 @@
 class ExamsController < ApplicationController
-  before_action :authenticate_user, only: [ :show, :index, :edit, :update, :destroy, :create ]
+  before_action :authenticate_user, except: []
   before_action :set_exam, only: %i[ show edit update destroy ]
 
   # GET /exams or /exams.json
@@ -67,11 +67,5 @@ class ExamsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def exam_params
       params.require(:exam).permit(:title, :description, :observation, :scheduled, :pet_owner_id, :veterinary_id)
-    end
-
-    def authenticate_user
-      unless session[:type] == "admin"
-        redirect_to root_url
-      end
     end
 end

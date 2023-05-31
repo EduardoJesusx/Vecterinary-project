@@ -1,4 +1,5 @@
 class VeterinariesController < ApplicationController
+  before_action :authenticate_user, except: []
   before_action :set_veterinary, only: %i[ show edit update destroy ]
 
   # GET /veterinaries or /veterinaries.json
