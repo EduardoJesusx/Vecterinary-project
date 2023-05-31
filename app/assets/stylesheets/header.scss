@@ -13,6 +13,11 @@
 	padding-right: 20px;
 	padding-top: 20px;
 }
+.user_link{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
 
 .links__list_header{
 	height: 20rem;
