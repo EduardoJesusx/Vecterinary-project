@@ -18,9 +18,10 @@
 			%span Veterinaries
 
 	%div.user_header
-		%img.avatar{:src => "https://robohash.org/{session[:name]}/"}
-		%p
-		= session[:name]
+		%a.user_link{ :href => "/login", :title => "Login" }
+			%img.avatar{:src => "https://robohash.org/{session[:name]}/"}
+			%p
+				= current_user.first_name
 
 :javascript
 	function hideHeader(){
