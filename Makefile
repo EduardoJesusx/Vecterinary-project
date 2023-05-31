@@ -4,4 +4,7 @@ bundle:
 	@bundle install
 
 bash:
-	sudo docker-compose run --service-ports web bash
+	sudo docker-compose run --service-ports web bash sh
+
+up:
+	sudo docker-compose up -d
