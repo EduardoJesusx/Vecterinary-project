@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  before_action :authenticate_user, except: []
   before_action :set_animal, only: %i[ show edit update destroy ]
 
   # GET /animals or /animals.json
