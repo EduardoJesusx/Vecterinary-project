@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :pet_owners
   resources :veterinaries
 
-  root 'veterinaries#index'
+  # get '/pat/', to: 'patients#show'
+  get '/create', to: 'sessions#index'
+  get '/destroy', to: 'sessions#destroy'
+
+  root 'animals#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

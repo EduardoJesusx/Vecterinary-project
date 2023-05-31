@@ -4,6 +4,7 @@ class CreateExams < ActiveRecord::Migration[7.0]
       t.string :title
       t.text :description
       t.text :observation
+      t.integer :status
       t.datetime :scheduled
       t.references :pet_owner, null: false, foreign_key: true
       t.references :veterinary, null: false, foreign_key: true
