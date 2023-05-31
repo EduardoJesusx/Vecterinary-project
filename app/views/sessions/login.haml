@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+%h1 Login
+
+= form_with(model: @user, url: login_path, method: :post) do |form|
+  .field
+    = form.label :email
+    = form.email_field :email
+
+  .field
+    = form.label :password
+    = form.password_field :password
+
+  .actions
+    = form.submit 'Login'
