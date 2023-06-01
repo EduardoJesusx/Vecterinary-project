@@ -31,7 +31,6 @@ class SessionsController < ApplicationController
     private
 
     def validate_user
-        byebug
         redirect_to :controller => 'exams', :action => 'index' if current_user.present?
     end
 end

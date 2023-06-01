@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/create', to: 'sessions#index'
-  get '/destroy', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
 
   root 'sessions#new'
 

@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_user
-      redirect_to root_url unless session[:user]
+      redirect_to root_url unless session[:user_id]
     end
 end

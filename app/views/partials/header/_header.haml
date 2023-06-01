@@ -18,10 +18,16 @@
 			%span Veterinaries
 
 	%div.user_header
-		%a.user_link{ :href => "/login", :title => "Login" }
-			%img.avatar{:src => "https://robohash.org/{session[:name]}/"}
+		- if current_user.present?
+			%a.user_link{ :href => "/veterinaries/#{current_user.id}/edit", :title => "Login" }
+				%img.avatar{:src => "https://robohash.org/#{current_user.first_name}/"}
 			%p
-				= current_user.first_name
+					= current_user.first_name if current_user.present?
+
+			- if current_user.present?
+				%a.logout-user{ :href => "/logout", :title => "Logout" }
+					%span
+						Logout
 
 :javascript
 	function hideHeader(){

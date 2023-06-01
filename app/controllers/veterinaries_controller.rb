@@ -22,8 +22,12 @@ class VeterinariesController < ApplicationController
 
   # POST /veterinaries or /veterinaries.json
   def create
-    @veterinary = Veterinary.new(veterinary_params)
-
+    if password_validation(veterinary_params[:password], veterinary_params[:password_confirmation])
+      veterinary_params[:password_digest] = Digest::SHA256.hexdigest(veterinary_params[:password])
+      veterinary_params[:password] = ''
+      veterinary_params[:password_confirmation] = ''
+    end
+    @veterinary = Veterinary.new(veterinary_params.slice(:password, :password_confirmation))
     respond_to do |format|
       if @veterinary.save
         format.html { redirect_to veterinary_url(@veterinary), notice: "Veterinary was successfully created." }
@@ -59,6 +63,11 @@ class VeterinariesController < ApplicationController
   end
 
   private
+
+    def password_validation(password, password_confirmation)
+      true if password == password_confirmation && password != ''
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_veterinary
       @veterinary = Veterinary.find(params[:id])
@@ -66,6 +75,6 @@ class VeterinariesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def veterinary_params
-      params.require(:veterinary).permit(:first_name, :last_name, :admin)
+      params.require(:veterinary).permit(:first_name,:last_name, :admin, :email, :password, :password_confirmation)
     end
 end
