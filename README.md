@@ -30,12 +30,6 @@
 
 Sobre o seu projeto
 
-## :sparkles: Funcionalidades ##
-
-:heavy_check_mark: Funcionalidade 1;\
-:heavy_check_mark: Funcionalidade 2;\
-:heavy_check_mark: Funcionalidade 3;
-
 ## :rocket: Tecnologias ##
 
 As seguintes ferramentas foram usadas na construção do projeto:
