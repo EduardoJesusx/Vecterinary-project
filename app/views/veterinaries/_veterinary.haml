@@ -1,0 +1,12 @@
+%div{ id: dom_id(veterinary) }
+  %p
+    %strong First name:
+    = veterinary.first_name
+
+  %p
+    %strong Last name:
+    = veterinary.last_name
+
+  %p
+    %strong Tipo:
+    = veterinary.admin ? "Admin" : "Comum"

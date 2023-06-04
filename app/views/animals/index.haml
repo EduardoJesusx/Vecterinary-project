@@ -1,0 +1,11 @@
+%p{ style: "color: green" }= notice
+
+%h1 Animals
+
+#animals
+  - @animals.each do |animal|
+    = render animal
+    %p
+      = link_to "Show this animal", animal
+
+= link_to "New animal", new_animal_path

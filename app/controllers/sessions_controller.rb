@@ -3,11 +3,13 @@ class SessionsController < ApplicationController
     before_action :validate_user, only: [:new]
 
     def new
+        if current_user.present?
+            redirect_to controller => 'exams', :action => 'index'
+        end
         render "login"
     end
 
-    def create
-        byebug
+    def create 
         @veterinary = Veterinary.where(email: params[:email]).first
         if @veterinary&.password_digest == Digest::SHA256.hexdigest(params[:password])
           session[:user_id] = @veterinary.id

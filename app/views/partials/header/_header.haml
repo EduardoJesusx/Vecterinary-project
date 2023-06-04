@@ -22,7 +22,7 @@
 			%a.user_link{ :href => "/veterinaries/#{current_user.id}/edit", :title => "Login" }
 				%img.avatar{:src => "https://robohash.org/#{current_user.first_name}/"}
 			%p
-					= current_user.first_name if current_user.present?
+				= current_user.first_name if current_user.present?
 
 			- if current_user.present?
 				%a.logout-user{ :href => "/logout", :title => "Logout" }

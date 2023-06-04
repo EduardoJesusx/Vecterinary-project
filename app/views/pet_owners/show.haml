@@ -1,0 +1,10 @@
+%p{style: "color: green"}= notice
+
+= render @pet_owner
+
+%div
+  = link_to "Edit this pet owner", edit_pet_owner_path(@pet_owner)
+  |
+  = link_to "Back to pet owners", pet_owners_path
+
+  = button_to "Destroy this pet owner", @pet_owner, method: :delete

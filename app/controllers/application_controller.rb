@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
     def authenticate_user
       redirect_to root_url unless session[:user_id]
     end
+
+    def admin_permission
+      unless Veterinary.find_by_id(session[:user_id]).admin == true
+        redirect_to root_url
+    end
+  end
 end

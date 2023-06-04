@@ -1,0 +1,12 @@
+%p{style: "color: green"}= notice
+
+%h1 Veterinaries
+
+- if current_user.admin 
+  #veterinaries
+    - @veterinaries.each do |veterinary|
+      = render veterinary
+      %p
+        = link_to "Show this veterinary", veterinary
+  
+  = link_to "New veterinary", new_veterinary_path

@@ -1,0 +1,11 @@
+%p{ style: "color: green" }= notice
+
+%h1 Exams
+
+#exams
+  - @exams.each do |exam|
+    = render exam
+    %p
+      = link_to "Show this exam", exam
+
+= link_to "New exam", new_exam_path

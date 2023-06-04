@@ -1,0 +1,9 @@
+%p{style: "color: green"}= notice
+
+= render @veterinary
+
+%div
+  = link_to "Edit this veterinary", edit_veterinary_path(@veterinary) |
+  = link_to "Back to veterinaries", veterinaries_path
+
+= button_to "Destroy this veterinary", @veterinary, method: :delete

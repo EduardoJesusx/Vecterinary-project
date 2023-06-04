@@ -1,5 +1,6 @@
 class PetOwnersController < ApplicationController
   before_action :authenticate_user, except: []
+  before_action :admin_permission, except: [ :index ]
   before_action :set_pet_owner, only: %i[ show edit update destroy ]
 
   # GET /pet_owners or /pet_owners.json

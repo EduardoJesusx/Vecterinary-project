@@ -1,0 +1,27 @@
+= form_with(model: exam) do |form|
+  - if exam.errors.any?
+    %div{style: "color: red"}
+      %h2= pluralize(exam.errors.count, "error") + " prohibited this exam from being saved:"
+      %ul
+        - exam.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :title, style: "display: block"
+    = form.text_field :title
+  %div
+    = form.label :description, style: "display: block"
+    = form.text_area :description
+  %div
+    = form.label :observation, style: "display: block"
+    = form.text_area :observation
+  %div
+    = form.label :scheduled, style: "display: block"
+    = form.datetime_field :scheduled
+  %div
+    = form.label :pet_owner_id, style: "display: block"
+    = form.collection_select :pet_owner_id, PetOwner.all, :id, :first_name
+  %div
+    = form.label :veterinary_id, style: "display: block"
+    = form.collection_select :veterinary_id, Veterinary.all, :id, :first_name
+  %div
+    = form.submit

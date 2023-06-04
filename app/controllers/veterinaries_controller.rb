@@ -2,6 +2,9 @@ class VeterinariesController < ApplicationController
   before_action :authenticate_user, except: []
   before_action :set_veterinary, only: %i[ show edit update destroy ]
 
+  before_action :admin_permission, except: [ :edit ]
+  before_action :acces_permissions, only: [ :edit ]
+
   # GET /veterinaries or /veterinaries.json
   def index
     @veterinaries = Veterinary.all
@@ -20,14 +23,23 @@ class VeterinariesController < ApplicationController
   def edit
   end
 
+  def edit_own
+    render :edit
+  end
+
   # POST /veterinaries or /veterinaries.json
   def create
-    if password_validation(veterinary_params[:password], veterinary_params[:password_confirmation])
-      veterinary_params[:password_digest] = Digest::SHA256.hexdigest(veterinary_params[:password])
-      veterinary_params[:password] = ''
-      veterinary_params[:password_confirmation] = ''
+    
+    modified_params = veterinary_params.dup
+    if password_validation(modified_params[:password], modified_params[:password_confirmation])
+      modified_params[:password_digest] = Digest::SHA256.hexdigest(modified_params[:password])
+      modified_params[:password] = ''
+      modified_params[:password_confirmation] = ''
+
+      modified_params.delete(:password)
+      modified_params.delete(:password_confirmation)
     end
-    @veterinary = Veterinary.new(veterinary_params.slice(:password, :password_confirmation))
+    @veterinary = Veterinary.new(modified_params)
     respond_to do |format|
       if @veterinary.save
         format.html { redirect_to veterinary_url(@veterinary), notice: "Veterinary was successfully created." }
@@ -63,6 +75,11 @@ class VeterinariesController < ApplicationController
   end
 
   private
+
+    def acces_permissions
+      
+      true if current_user.id == params[:id]
+    end
 
     def password_validation(password, password_confirmation)
       true if password == password_confirmation && password != ''
