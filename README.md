@@ -9,7 +9,7 @@
 </p>
 
  <h4 align="center"> 
-	🚧  Vecterinary Project 🚀 Em construção...  🚧
+	🚧  Em construção...  🚧
 </h4> 
 
 <hr>
