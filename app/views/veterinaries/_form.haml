@@ -19,7 +19,7 @@
       = form.label :admin, style: "display: block"
       = form.select :admin, options_for_select([["Comum", false], ["Admin", true]], veterinary.admin)
 
-  - unless veterinary.present?
+  - unless params[:id].present?
     %div
       = form.label :password, style: "display: block"
       = form.password_field :password

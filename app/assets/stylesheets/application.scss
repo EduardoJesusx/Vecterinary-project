@@ -1,3 +1,8 @@
+:root {
+	--color-blue-600: #0891b2;
+	--color-teal-500: #14b8a6;
+}
+
 *{
 	box-sizing: border-box;
 	margin: 0;
@@ -10,22 +15,50 @@ body{
 	display: grid;
 	grid-template-areas: 
 	"sidebar content content"
+	"sidebar content content"
+	"sidebar content content"
 	;
-	grid-template-columns: 200px 1fr;
+	background: linear-gradient(#e2e8f0, #e5e7eb);
 }
 
 main{
-	height: 100%;
-	grid-area: "content";
-	max-height: 100vh;
+	margin: auto;
 	overflow: auto;
+	grid-area: "content";
+	width: 100%;
+	min-width: 300px;
+	max-height: 100vh;
+	background-color: white;
+	border-radius: 1rem;
+	padding: 1.3rem 2.3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	box-shadow: -1px 5px 13px 2px #00000014;
+}
+
+main h1 {
+	position: relative;
+	margin-bottom: 1rem;
+	color: #083344;
+}
+
+main h1::after {
+	content: '';
+	border-radius: 2rem;
+	background-color: #0891b2;
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	transition: 0.5s width;
 }
 
 .header{
-  	height: 100px;
-  	width: 100%;
-  	background: rgb(255, 241, 241);
-  	display: flex;
+	height: 100px;
+	width: 100%;
+	display: flex;
 	align-items: center;
 	justify-content: space-around;
 }
@@ -39,17 +72,94 @@ main{
 
 .header-links a{
 	color: black;	
-  	text-decoration: none;
+	text-decoration: none;
 }
 
 img{
 	width: 100px;
 }
 
-#veterinaries{
-	margin-left: 15rem;
+.link-button a {
+	width: fit-content;
+	display: block;
+	position: relative;
+	padding: 0.7rem 1rem;
+	border-radius: 0.3rem;
+	background-color: #0891b2;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
 }
 
-.content{
-
+.link-button a:hover {
+	padding: 0.7rem 1rem;
+	border-radius: 0.3rem;
+	background-color: #22d3ee;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+	transition: 0.3s background-color;
 }
+
+.data-not-found {
+	width: 100%;
+	height: 100%;
+	padding: 20%;
+	margin: auto;
+	border-radius: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 3px dashed #164e63;
+	color: #164e63;
+}
+
+input, textarea, button {
+	border: 2px solid #155e75;
+	border-radius: 5px;
+	padding: 1rem 1.2rem;
+	font-size: 1rem;
+	width: 100%;
+}
+
+input, textarea {
+	color: #155e75;
+	background-color: #f1f4f8;
+}
+
+button, input[type="submit"] {
+	border: none;
+	background-color: #0e7490;
+	color: #FFF;
+	cursor: pointer;
+}
+
+button:hover, input[type="submit"]:hover {
+	background-color: #155e75;
+	transition: 0.3s background-color;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+label.required:after{content:"*"}

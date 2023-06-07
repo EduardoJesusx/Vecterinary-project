@@ -4,9 +4,9 @@
 
 - if current_user.admin 
   #veterinaries
-    - @veterinaries.each do |veterinary|
-      = render veterinary
-      %p
-        = link_to "Show this veterinary", veterinary
-  
+    %table
+      - @veterinaries.each do |veterinary|
+        = render veterinary
+        
+.link-button
   = link_to "New veterinary", new_veterinary_path

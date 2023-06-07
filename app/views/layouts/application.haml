@@ -12,3 +12,24 @@
     = render partial: "partials/header/header"
     %main
       = yield
+
+
+:javascript
+  try {
+    showDiv()
+  } catch(err) {
+  }
+
+  addEventListener('load', () => {
+    showDiv()
+  })
+
+  function showDiv () {
+    const veterinaries = document.querySelector("#veterinaries")
+    if (veterinaries.children.length === 0) {
+      const dataNotFound = document.createElement('div')
+      dataNotFound.classList.add('data-not-found')
+      dataNotFound.innerHTML = 'Nenum pet veterinarie encontrado'
+      veterinaries.appendChild(dataNotFound)
+    }
+  }

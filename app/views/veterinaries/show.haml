@@ -3,7 +3,10 @@
 = render @veterinary
 
 %div
-  = link_to "Edit this veterinary", edit_veterinary_path(@veterinary) |
-  = link_to "Back to veterinaries", veterinaries_path
+  .link-button
+    = link_to "Edit this veterinary", edit_veterinary_path(@veterinary) |
+  .link-button
+    = link_to "Back to veterinaries", veterinaries_path
+  .link-button
+    = button_to "Destroy this veterinary", @veterinary, method: :delete
 
-= button_to "Destroy this veterinary", @veterinary, method: :delete

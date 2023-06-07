@@ -3,31 +3,33 @@
 	%a.link-header-logo{ :href => "/", :title => "Logo" }
 		%div.logo_header
 			%img{:src => asset_path("logo.png")}
+	- if current_user.present?
+		%li.links__list_header
+			%a.links__list_header{ :href => "/exams", :title => "Meet the Team" }
+				%span Exams
 
-	%li.links__list_header
-		%a.links__list_header{ :href => "/exams", :title => "Meet the Team" }
-			%span Exams
+			%a.links__list_header{ :href => "/pet_owners", :title => "Meet the Team" }
+				%span Pet Owners
 
-		%a.links__list_header{ :href => "/pet_owners", :title => "Meet the Team" }
-			%span Pet Owners
+			%a.links__list_header{ :href => "/animals", :title => "Meet the Team" }
+				%span Animals
 
-		%a.links__list_header{ :href => "/animals", :title => "Meet the Team" }
-			%span Animals
+			%a.links__list_header{ :href => "/veterinaries", :title => "Meet the Team" }
+				%span Veterinaries
 
-		%a.links__list_header{ :href => "/veterinaries", :title => "Meet the Team" }
-			%span Veterinaries
-
-	%div.user_header
-		- if current_user.present?
-			%a.user_link{ :href => "/veterinaries/#{current_user.id}/edit", :title => "Login" }
-				%img.avatar{:src => "https://robohash.org/#{current_user.first_name}/"}
-			%p
-				= current_user.first_name if current_user.present?
-
+		%div.user_header
 			- if current_user.present?
-				%a.logout-user{ :href => "/logout", :title => "Logout" }
-					%span
-						Logout
+				%a.user_link{ :href => "/veterinaries/#{current_user.id}/edit", :title => "Login" }
+					%img.avatar{:src => "https://robohash.org/#{current_user.first_name}/"}
+
+				%div
+					%p
+						= current_user.first_name if current_user.present?
+
+					- if current_user.present?
+						%a.logout-user{ :href => "/logout", :title => "Logout" }
+							%span
+								Logout
 
 :javascript
 	function hideHeader(){

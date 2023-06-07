@@ -1,9 +1,10 @@
-%p
-  = notice
+- flash.each do |nome, mensagem|
+  = content_tag :div, mensagem, class: nome
+
 
 %h1 Login
 
-= form_with(model: @user, url: login_path, method: :post) do |form|
+= form_for :session, url: login_path, method: :post do |form|
   .field
     = form.label :email
     = form.email_field :email
