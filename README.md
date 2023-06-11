@@ -9,7 +9,7 @@
 </p>
 
  <h4 align="center"> 
-	🚧  Em construção...  🚧
+	<img alt="Notion" src="[https://img.shields.io/github/license/EduardoJesusx/vecterinary-project?color=56BEB8](https://www.notion.so/Veterinary-4bed99e5a5664023949b391d6e63b071)">
 </h4> 
 
 <hr>
